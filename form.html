@@ -1,0 +1,101 @@
+<!Doctype Html>  
+<Html>     
+	<Head>      
+		<meta charset="UTF-8" />
+		<Title>     
+			form  
+		</Title>
+
+		<style>
+			body {background-color: #D4eff9; font-family: verdana;}
+			h1   {color: #011071;}
+			h4   {font-size: 150%; color: red;border: 3px solid #efd28c;text-align: center;}
+			form {font-size: 110%;}
+		</style>
+		<script> 
+		function validateForm() 
+		{ 
+			let entry = [ 
+				document.forms["tshirtform"]["colour"].value, 
+				document.forms["tshirtform"]["tagline"].value, 
+				document.forms["tshirtform"]["phone"].value, 
+				document.forms["tshirtform"]["email"].value, 
+				document.forms["tshirtform"]["address"].value 
+			];
+			
+		
+			
+			let receipt_formatted = `Thank you !\nYour receipt:\nDate of receipt: ${new Date().toLocaleDateString("UK")}\nT Shirt Details:\nColour: ${entry[0]}\nTagline: ${entry[1]}\nDelivery Details:\nPhone: ${entry[2]}\nEmail id: ${entry[3]}\nAddress: ${entry[4]}`;
+			alert(receipt_formatted);
+			
+			return;	
+		}
+			
+		</script> 
+
+	</Head>  
+	<Body> 
+		
+		<h1> Welcome to Isha T-shirts!</h1>   
+		<h4>TShirt details</h4>
+		<form name="tshirtform" id="tform" onsubmit="validateForm()" method="put">    
+			<label name="type"> Type of T-shirt: </label>           
+			<select name="type" required>    
+			<option value="T-shirt">T-shirt</option>    
+			<option value="Type 1">Type 1</option>    
+			<option value="Type 2">Type 2</option>    
+			<option value="Type 3">Type 3</option>    
+			<option value="Type 4">Type 4</option>    
+			<option value="Type 5">Type 5</option>    
+			</select>    
+			<br> <br>
+			
+			<label name="gender"> Gender : </label>   
+			<input type="radio" name="gender" required /> Male     
+			<input type="radio" name="gender" required /> Female     
+			<input type="radio" name="gender" required /> Other    
+			<br> <br>
+
+			<label name="colour"> Colour: </label>           
+			<input type="color" name="colour" required >
+			<br> <br>  
+
+			<label name="size"> Size: </label>       
+			<input type="checkbox" name="size" > S     
+			<input type="checkbox" name="size" > M     
+			<input type="checkbox" name="size" > L    
+			<input type="checkbox" name="size" > XL    
+			<br> <br>
+			
+			<label name="quantity"> Quantity: </label>           
+			<input type="number" min="1" max="10" name="quantity"required >
+			<br> <br>  
+			
+			<label name="tagline" id="tagline"> Tagline on tshirt: </label>      
+			<input type="text" name="tagline" required > 
+			<br> <br>    
+
+			
+			<h4>Details of Delivery</h4>
+			<label name="date"> Date: </label>     
+			<input type="date" name="date" required >
+			<br> <br>    
+			
+			<label name="phone"> Phone : </label>      
+			<input type="text" maxlength="10" placeholder="1234567890" name="phone" required > 
+			<br> <br>    
+			
+			<label name="email"> Email : </label>      
+			<input type="email" name="email" required >       
+			<br> <br>    
+			
+			<label name="address" id="address"> Address : </label>      
+			<br>    
+			<textarea cols="80" rows="5" name="address" required > </textarea>    
+			<br> <br>
+			
+			<input type="submit" value="Submit">    
+		</form>    
+	</Body>   
+	
+</Html>  
